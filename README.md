@@ -298,7 +298,8 @@ fig8_multidataset.png        ← Generated after running Section 13
 
 ### ▶️ Run Directly in Google Colab (Recommended)
 
-👉 **[Open in Colab]([https://colab.research.google.com/github/YOUR_USERNAME/YOUR_REPO/blob/main/FABIP_Project.ipynb](https://colab.research.google.com/github/MNMashiur/FABIP-Fairness-Aware-Bias-Impact-Pruning-for-Sustainable-and-Fair-Recidivism-Prediction/blob/main/FABIP.ipynb))**
+👉 **[Open in Colab](https://colab.research.google.com/github/MNMashiur/FABIP-Fairness-Aware-Bias-Impact-Pruning-for-Sustainable-and-Fair-Recidivism-Prediction/blob/main/FABIP.ipynb)**
+
 
 > Replace `YOUR_USERNAME/YOUR_REPO` with your actual GitHub repository link.
 
