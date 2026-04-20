@@ -300,9 +300,6 @@ fig8_multidataset.png        ← Generated after running Section 13
 
 👉 **[Open in Colab](https://colab.research.google.com/github/MNMashiur/FABIP-Fairness-Aware-Bias-Impact-Pruning-for-Sustainable-and-Fair-Recidivism-Prediction/blob/main/FABIP.ipynb)**
 
-
-> Replace `YOUR_USERNAME/YOUR_REPO` with your actual GitHub repository link.
-
 ---
 
 ### Steps
@@ -343,31 +340,6 @@ fig8_multidataset.png        ← Generated after running Section 13
 
 ---
 
-## 💻 Optional: Run Locally
-
-```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
-cd YOUR_REPO
-
-python -m venv fabip_env
-source fabip_env/bin/activate       # Linux / macOS
-fabip_env\Scripts\activate          # Windows
-
-pip install torch torchvision numpy pandas matplotlib seaborn scikit-learn fairlearn fvcore
-
-jupyter notebook FABIP_Project.ipynb
-
-> ⚠️ A CUDA-capable GPU is strongly recommended. CPU-only inference is supported but the BIS ablation loop over neuron candidates is significantly slower.
-
-### Switching Datasets
-
-In **Section 2**, change one line:
-
-```python
-ACTIVE_DATASET = 'compas'   # Options: 'compas' | 'adult' | 'german'
-```
-
-Then re-run all cells from Section 2 onwards. Adult Income and German Credit are downloaded automatically via `sklearn.datasets.fetch_openml` — no manual file upload required.
 
 ### Dependencies
 
