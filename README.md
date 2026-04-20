@@ -294,36 +294,67 @@ fig8_multidataset.png        ← Generated after running Section 13
 
 ---
 
-## How to Run
+## 🚀 How to Run
 
-### Option A — Google Colab (Recommended)
+### ▶️ Run Directly in Google Colab (Recommended)
 
-1. Go to [colab.research.google.com](https://colab.research.google.com)
-2. Upload `FABIP_Project.ipynb` via **File → Upload notebook**
-3. Set the runtime to GPU: **Runtime → Change runtime type → T4 GPU**
-4. *(Optional but recommended)* Upload your COMPAS dataset:
-   - Download from [Kaggle](https://www.kaggle.com/datasets/danofer/compass): `compas-scores-two-years.csv`
-   - Upload to the Colab session: click the folder icon on the left → upload → place at `/content/compas-scores-two-years.csv`
-   - If you skip this step, the notebook **automatically downloads** from ProPublica's public GitHub
-5. Run all cells: **Runtime → Run all**
+👉 **[Open in Colab](https://colab.research.google.com/github/YOUR_USERNAME/YOUR_REPO/blob/main/FABIP_Project.ipynb)**
 
-> ⚠️ The notebook takes approximately **20–40 minutes** on a T4 GPU to complete all 14 sections, including multi-dataset runs, ablation study, and sensitivity analysis.
+> Replace `YOUR_USERNAME/YOUR_REPO` with your actual GitHub repository link.
 
-### Option B — Local Environment
+---
+
+### Steps
+
+1. Click the **Open in Colab** link above  
+2. *(Optional)* Enable GPU for faster execution:  
+   **Runtime → Change runtime type → T4 GPU**  
+3. Click:  
+   **Runtime → Run all**
+
+---
+
+### ✅ Ready to Go
+
+- No dataset upload required  
+- No setup required  
+- Everything is pre-configured  
+
+---
+
+### ⏱ Runtime
+
+- Approximately **20–40 minutes** on GPU  
+- Includes:
+  - Baseline training  
+  - FABIP pruning  
+  - Fairness evaluation  
+  - Ablation study  
+  - Sensitivity analysis  
+
+---
+
+### 🧠 Notes
+
+- Outputs (metrics, plots, comparisons) are **already visible in GitHub preview**
+- You can **rerun and modify everything directly in Colab**
+- Designed for **one-click reproducibility**
+
+---
+
+## 💻 Optional: Run Locally
 
 ```bash
-# Clone or place the notebook in your working directory
-# Create a virtual environment (recommended)
+git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
+cd YOUR_REPO
+
 python -m venv fabip_env
 source fabip_env/bin/activate       # Linux / macOS
 fabip_env\Scripts\activate          # Windows
 
-# Install dependencies
 pip install torch torchvision numpy pandas matplotlib seaborn scikit-learn fairlearn fvcore
 
-# Launch Jupyter
 jupyter notebook FABIP_Project.ipynb
-```
 
 > ⚠️ A CUDA-capable GPU is strongly recommended. CPU-only inference is supported but the BIS ablation loop over neuron candidates is significantly slower.
 
