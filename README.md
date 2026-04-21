@@ -417,32 +417,6 @@ Standard unstructured pruning methods (including FairPrune) fail condition 3 bec
 
 ---
 
-## Addressing Faculty Feedback
-
-This section explicitly maps the project revisions to the four pieces of feedback received on the original proposal (score: 5.6/10).
-
-### Feedback 1: "BIS formula never explained — how is accuracy attributed to a single weight?"
-
-**Resolution:** The BIS is now computed at the neuron level using two complementary and independently justifiable methods:
-
-- **Gradient attribution** (`compute_bis_gradient`): Computes the absolute difference in per-group gradients at each hidden neuron. This directly measures how differently the neuron responds to the two demographic groups during loss minimisation — a principled information-theoretic interpretation of bias contribution.
-- **Ablation masking** (`compute_bis_ablation`): Physically zeros each candidate neuron and measures the change in the group accuracy gap. This is a causal intervention, not a correlation, and directly measures whether the neuron is causally responsible for the observed bias.
-
-Both methods are implemented with full code, mathematical definitions, and explanatory comments in Sections 8 and 9 of the notebook.
-
-### Feedback 2: "FLOPs do not decrease from zeroed weights alone. Only structured pruning achieves this."
-
-**Resolution:** FABIP uses exclusively **structured pruning** (`structured_prune` function in Section 9). The implementation physically removes neuron rows from weight matrices and calls `FABIPNet.__init__` with updated `hidden_dims` to rebuild a genuinely smaller network. The FLOPs formula `2 × n_in × n_out` (per layer) is explicitly computed and reported before and after pruning. The notebook demonstrates that Magnitude Pruning and FairPrune — both unstructured — show *identical FLOPs to the Vanilla model*, while FABIP shows a ~48.6% FLOPs reduction.
-
-### Feedback 3: "No dedicated experimental plan section. No baselines defined."
-
-**Resolution:** Three baselines are fully implemented and compared: Vanilla (no intervention), Magnitude Pruning (standard unstructured), and FairPrune (Wu et al., 2022). Results are presented in a structured table across 10 metrics. An ablation study (Section 11) justifies each component of FABIP. A sensitivity analysis (Section 12) characterises behaviour across pruning ratios. A multi-dataset generalisation (Section 13) validates the approach beyond a single domain.
-
-### Feedback 4: "Too limited in scope — make it general. What do you mean by 'sustainable'?"
-
-**Resolution:** The framework is generalised to three datasets across three different domains and three different sensitive attributes (race, sex, age). "Sustainable" is defined precisely and operationally in the notebook title cell, the final summary cell, and throughout this README: a model is sustainable when it achieves fairness without a computational penalty, demonstrated through genuine FLOPs, parameter, and latency reductions.
-
----
 
 ## Authors
 
